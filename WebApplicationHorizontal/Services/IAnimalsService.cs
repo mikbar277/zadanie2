@@ -1,6 +1,8 @@
-﻿namespace WebApplication1.Services;
+﻿using WebApplication1.Model;
 
-public class IAnimalService
+namespace WebApplication1.Services;
+
+public interface IAnimalsService
 {
-    
+    IEnumerable<Animal> GetAnimals();
 }

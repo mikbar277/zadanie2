@@ -3,9 +3,22 @@ using WebApplication1.Services;
 
 namespace WebApplication1.Controllers;
 
-public class AnimalController : ControllerBase
+[Route("api/[controller]")]
+[ApiController]
+public class AnimalsController : ControllerBase
 {
-    private IAnimalsService _animalService;
+    private IAnimalsService _animalsService;
+
+    public AnimalsController(IAnimalsService animalsService)
+    {
+        _animalsService = animalsService;
+    }
     
-    public Animals
+    // Endpoint used to return list of animals.
+    [HttpGet]
+    public IActionResult GetAnimals()
+    {
+        var animals = _animalsService.GetAnimals();
+        return Ok(animals);
+    }
 }

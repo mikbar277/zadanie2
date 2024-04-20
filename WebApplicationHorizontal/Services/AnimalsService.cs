@@ -1,6 +1,20 @@
-﻿namespace WebApplication1.Services;
+﻿using WebApplication1.Model;
+using WebApplication1.Repositories;
 
-public class AnimalsServices
+namespace WebApplication1.Services;
+
+public class AnimalsService : IAnimalsService
 {
-    
+    private readonly IAnimalsRepository _animalsRepository;
+
+    public AnimalsService(IAnimalsRepository animalsRepository)
+    {
+        _animalsRepository = animalsRepository;
+    }
+
+    public IEnumerable<Animal> GetAnimals()
+    {
+        // Business logic
+        return _animalsRepository.GetAnimals();
+    }
 }
