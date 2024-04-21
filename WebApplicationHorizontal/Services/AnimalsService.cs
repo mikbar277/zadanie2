@@ -17,5 +17,10 @@ public class AnimalsService : IAnimalsService
         // Business logic
         return _animalsRepository.GetAnimals(orderBy);
     }
-    
+
+    public int CreateAnimal(Animal animal)
+    {
+        //Business logic
+        return _animalsRepository.CreateAnimal(animal);
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Model;
 using WebApplication1.Services;
 
 namespace WebApplication1.Controllers;
@@ -20,5 +21,12 @@ public class AnimalsController : ControllerBase
     {
         var animals = _animalsService.GetAnimals(orderBy);
         return Ok(animals);
+    }
+
+    [HttpPost]
+    public IActionResult CreateAnimal(Animal animal)
+    {
+        var affectedCount = _animalsService.CreateAnimal(animal);
+        return StatusCode(StatusCodes.Status201Created);
     }
 }
