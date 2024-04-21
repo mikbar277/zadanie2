@@ -16,9 +16,9 @@ public class AnimalsController : ControllerBase
     
     // Endpoint used to return list of animals.
     [HttpGet]
-    public IActionResult GetAnimals()
+    public IActionResult GetAnimals(string orderBy = "")
     {
-        var animals = _animalsService.GetAnimals();
+        var animals = _animalsService.GetAnimals(orderBy);
         return Ok(animals);
     }
 }
