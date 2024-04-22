@@ -6,4 +6,5 @@ public interface IAnimalsRepository
 {
      IEnumerable<Animal> GetAnimals(string orderBy);
      int CreateAnimal(Animal animal);
+     int UpdateAnimal(int id, Animal animal);
 }

@@ -23,4 +23,10 @@ public class AnimalsService : IAnimalsService
         //Business logic
         return _animalsRepository.CreateAnimal(animal);
     }
+
+    public int UpdateAnimal(int id, Animal animal)
+    {
+        //Business logic
+        return _animalsRepository.UpdateAnimal(id, animal);
+    }
 }
