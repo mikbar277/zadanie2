@@ -30,10 +30,17 @@ public class AnimalsController : ControllerBase
         return StatusCode(StatusCodes.Status201Created);
     }
 
-    [HttpPut("{id:int}")]
-    public IActionResult UpdateAnimal(int id, Animal animal)
+    [HttpPut("{idAnimal:int}")]
+    public IActionResult UpdateAnimal(int idAnimal, Animal animal)
     {
-        var affectedCount = _animalsService.UpdateAnimal(id, animal);
+        var affectedCount = _animalsService.UpdateAnimal(idAnimal, animal);
+        return NoContent();
+    }
+
+    [HttpDelete("{idAnimal:int}")]
+    public IActionResult DeleteAnimal(int idAnimal)
+    {
+        var affectedCount = _animalsService.DeleteAnimal(idAnimal);
         return NoContent();
     }
 }

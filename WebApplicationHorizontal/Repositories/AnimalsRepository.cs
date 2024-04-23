@@ -170,4 +170,18 @@ public class AnimalsRepository : IAnimalsRepository
         var affectedCount = cmd.ExecuteNonQuery();
         return affectedCount;
     }
+
+    public int DeleteAnimal(int id)
+    {
+        using var con = new SqlConnection(_configuration["ConnectionStrings:DefaultConnection"]);
+        con.Open();
+
+        using var cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandText = "DELETE FROM Animal WHERE IdAnimal = @IdAnimal";
+        cmd.Parameters.AddWithValue("@IdAnimal", id);
+
+        var affectedCount = cmd.ExecuteNonQuery();
+        return affectedCount;
+    }
 }

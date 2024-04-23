@@ -29,4 +29,10 @@ public class AnimalsService : IAnimalsService
         //Business logic
         return _animalsRepository.UpdateAnimal(id, animal);
     }
+
+    public int DeleteAnimal(int idAnimal)
+    {
+        //Business logic
+        return _animalsRepository.DeleteAnimal(idAnimal);
+    }
 }
